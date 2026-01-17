@@ -3,10 +3,7 @@ import { MailService } from './mail.service';
 import { ConfigModule } from '@nestjs/config';
 
 @Module({
-  imports: [
-    // Nodemailder config
-    ConfigModule,
-  ],
+  imports: [ConfigModule],
   providers: [MailService],
 })
 export class MailModule {}

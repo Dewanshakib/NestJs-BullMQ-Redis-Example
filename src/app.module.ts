@@ -4,7 +4,6 @@ import { AppService } from './app.service';
 import { AuthModule } from './modules/auth/auth.module';
 import { BullModule } from '@nestjs/bullmq';
 import { ConfigModule } from '@nestjs/config';
-import { ResendModule } from 'nest-resend';
 import { MailModule } from './modules/mail/mail.module';
 
 @Module({
