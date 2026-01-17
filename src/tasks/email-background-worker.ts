@@ -1,6 +1,7 @@
 import { OnWorkerEvent, Processor, WorkerHost } from '@nestjs/bullmq';
 import { Job } from 'bullmq';
 import { MailService } from 'src/modules/mail/mail.service';
+import { randomInt } from 'crypto';
 
 @Processor('email-verification', { limiter: { duration: 10000, max: 20 } })
 export class EmailSentWorker extends WorkerHost {
@@ -9,7 +10,7 @@ export class EmailSentWorker extends WorkerHost {
   }
 
   async process(job: Job, token?: string) {
-    const otp = Math.floor(100000 + Math.random() * 900000).toString();
+    const otp = randomInt(100000, 999999).toString();
     await this.mailService.sendEmail(job.data.email, job.data.username, otp);
   }
 

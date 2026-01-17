@@ -11,7 +11,6 @@ export class MailService {
       host: this.configService.get<string>('EMAIL_HOST'),
       port: this.configService.get<number>('PORT'),
       secure: false,
-      // service: 'gmail',
       auth: {
         user: this.configService.get<string>('EMAIL_USER'),
         pass: this.configService.get<string>('EMAIL_PASSWORD'),
