@@ -1,0 +1,13 @@
+services:
+  redis:
+    image: redis:8.4-alpine
+    container_name: redis
+    restart: always
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_cache:/data
+
+volumes:
+  redis_cache:
+    driver: local
